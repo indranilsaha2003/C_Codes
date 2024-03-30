@@ -1,0 +1,98 @@
+The Array is: 3 75 87 48 
+
+Permutation: 3 75 87 48 
+Sorted permutation: 3 48 75 87 : 3
+
+
+Permutation: 3 75 48 87 
+Sorted permutation: 3 48 75 87 : 6
+
+
+Permutation: 3 87 75 48 
+Sorted permutation: 3 48 75 87 : 4
+
+
+Permutation: 3 87 48 75 
+Sorted permutation: 3 48 75 87 : 5
+
+
+Permutation: 3 48 87 75 
+Sorted permutation: 3 48 75 87 : 5
+
+
+Permutation: 3 48 75 87 
+Sorted permutation: 3 48 75 87 : 9
+
+
+Permutation: 75 3 87 48 
+Sorted permutation: 3 48 75 87 : 3
+
+
+Permutation: 75 3 48 87 
+Sorted permutation: 3 48 75 87 : 6
+
+
+Permutation: 75 87 3 48 
+Sorted permutation: 3 48 75 87 : 4
+
+
+Permutation: 75 87 48 3 
+Sorted permutation: 3 48 75 87 : 3
+
+
+Permutation: 75 48 87 3 
+Sorted permutation: 3 48 75 87 : 3
+
+
+Permutation: 75 48 3 87 
+Sorted permutation: 3 48 75 87 : 7
+
+
+Permutation: 87 75 3 48 
+Sorted permutation: 3 48 75 87 : 3
+
+
+Permutation: 87 75 48 3 
+Sorted permutation: 3 48 75 87 : 5
+
+
+Permutation: 87 3 75 48 
+Sorted permutation: 3 48 75 87 : 4
+
+
+Permutation: 87 3 48 75 
+Sorted permutation: 3 48 75 87 : 5
+
+
+Permutation: 87 48 3 75 
+Sorted permutation: 3 48 75 87 : 4
+
+
+Permutation: 87 48 75 3 
+Sorted permutation: 3 48 75 87 : 6
+
+
+Permutation: 48 75 87 3 
+Sorted permutation: 3 48 75 87 : 3
+
+
+Permutation: 48 75 3 87 
+Sorted permutation: 3 48 75 87 : 6
+
+
+Permutation: 48 87 75 3 
+Sorted permutation: 3 48 75 87 : 4
+
+
+Permutation: 48 87 3 75 
+Sorted permutation: 3 48 75 87 : 4
+
+
+Permutation: 48 3 87 75 
+Sorted permutation: 3 48 75 87 : 4
+
+
+Permutation: 48 3 75 87 
+Sorted permutation: 3 48 75 87 : 8
+
+

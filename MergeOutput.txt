@@ -1,0 +1,482 @@
+The array is: 25 19 51 93 68 
+
+Permutation: 25 19 51 93 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 25 19 51 68 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 25 19 93 51 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 25 19 93 68 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 25 19 68 93 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 25 19 68 51 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 25 51 19 93 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 25 51 19 68 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 25 51 93 19 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 25 51 93 68 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 25 51 68 93 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 25 51 68 19 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 25 93 51 19 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 25 93 51 68 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 25 93 19 51 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 25 93 19 68 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 25 93 68 19 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 25 93 68 51 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 25 68 51 93 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 25 68 51 19 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 25 68 93 51 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 25 68 93 19 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 25 68 19 93 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 25 68 19 51 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 19 25 51 93 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 19 25 51 68 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 19 25 93 51 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 25 93 68 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 25 68 93 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 25 68 51 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 51 25 93 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 19 51 25 68 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 19 51 93 25 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 51 93 68 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 51 68 93 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 51 68 25 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 93 51 25 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 93 51 68 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 93 25 51 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 93 25 68 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 93 68 25 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 19 93 68 51 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 19 68 51 93 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 68 51 25 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 68 93 51 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 19 68 93 25 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 19 68 25 93 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 19 68 25 51 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 51 19 25 93 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 51 19 25 68 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 51 19 93 25 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 51 19 93 68 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 51 19 68 93 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 51 19 68 25 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 51 25 19 93 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 51 25 19 68 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 51 25 93 19 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 51 25 93 68 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 51 25 68 93 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 51 25 68 19 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 51 93 25 19 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 51 93 25 68 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 51 93 19 25 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 51 93 19 68 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 51 93 68 19 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 51 93 68 25 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 51 68 25 93 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 51 68 25 19 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 51 68 93 25 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 51 68 93 19 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 51 68 19 93 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 51 68 19 25 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 93 19 51 25 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 93 19 51 68 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 93 19 25 51 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 93 19 25 68 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 93 19 68 25 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 93 19 68 51 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 93 51 19 25 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 93 51 19 68 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 93 51 25 19 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 93 51 25 68 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 93 51 68 25 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 93 51 68 19 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 93 25 51 19 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 93 25 51 68 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 93 25 19 51 68 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 93 25 19 68 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 93 25 68 19 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 93 25 68 51 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 93 68 51 25 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 5
+
+Permutation: 93 68 51 19 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 5
+
+Permutation: 93 68 25 51 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 93 68 25 19 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 93 68 19 25 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 93 68 19 51 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 68 19 51 93 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 68 19 51 25 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 68 19 93 51 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 68 19 93 25 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 68 19 25 93 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 68 19 25 51 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 68 51 19 93 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 68 51 19 25 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 68 51 93 19 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 68 51 93 25 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 68 51 25 93 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 68 51 25 19 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 68 93 51 19 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 5
+
+Permutation: 68 93 51 25 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 5
+
+Permutation: 68 93 19 51 25 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 68 93 19 25 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 68 93 25 19 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 68 93 25 51 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 6
+
+Permutation: 68 25 51 93 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 68 25 51 19 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 8
+
+Permutation: 68 25 93 51 19 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 68 25 93 19 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 68 25 19 93 51 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
+Permutation: 68 25 19 51 93 
+Sorted permutation: 19 25 51 68 93 
+Number of times comparison is done: 7
+
