@@ -1,98 +1,214 @@
-The Array is: 3 75 87 48 
+The array is: 63 45 83 68 
 
-Permutation: 3 75 87 48 
-Sorted permutation: 3 48 75 87 : 3
+Permutation: 63 45 83 68 
+Pivot: 68
+Permutation after choosing pivot: 63 45 83 68 
+Pivot: 63
+Permutation after choosing pivot: 63 45 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 4
 
+Permutation: 63 45 68 83 
+Pivot: 68
+Permutation after choosing pivot: 63 45 68 83 
+Pivot: 45
+Permutation after choosing pivot: 63 45 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 4
 
-Permutation: 3 75 48 87 
-Sorted permutation: 3 48 75 87 : 6
+Permutation: 63 83 45 68 
+Pivot: 83
+Permutation after choosing pivot: 63 83 45 68 
+Pivot: 68
+Permutation after choosing pivot: 63 68 45 
+Pivot: 63
+Permutation after choosing pivot: 63 45 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 6
 
+Permutation: 63 83 68 45 
+Pivot: 68
+Permutation after choosing pivot: 63 83 68 45 
+Pivot: 45
+Permutation after choosing pivot: 63 45 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 4
 
-Permutation: 3 87 75 48 
-Sorted permutation: 3 48 75 87 : 4
+Permutation: 63 68 83 45 
+Pivot: 83
+Permutation after choosing pivot: 63 68 83 45 
+Pivot: 45
+Permutation after choosing pivot: 63 68 45 
+Pivot: 63
+Permutation after choosing pivot: 68 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 6
 
+Permutation: 63 68 45 83 
+Pivot: 45
+Permutation after choosing pivot: 63 68 45 83 
+Pivot: 68
+Permutation after choosing pivot: 68 83 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 5
 
-Permutation: 3 87 48 75 
-Sorted permutation: 3 48 75 87 : 5
+Permutation: 45 63 83 68 
+Pivot: 68
+Permutation after choosing pivot: 45 63 83 68 
+Pivot: 45
+Permutation after choosing pivot: 45 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 4
 
+Permutation: 45 63 68 83 
+Pivot: 83
+Permutation after choosing pivot: 45 63 68 83 
+Pivot: 68
+Permutation after choosing pivot: 45 63 68 
+Pivot: 45
+Permutation after choosing pivot: 45 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 6
 
-Permutation: 3 48 87 75 
-Sorted permutation: 3 48 75 87 : 5
+Permutation: 45 83 63 68 
+Pivot: 68
+Permutation after choosing pivot: 45 83 63 68 
+Pivot: 45
+Permutation after choosing pivot: 45 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 4
 
+Permutation: 45 83 68 63 
+Pivot: 83
+Permutation after choosing pivot: 45 83 68 63 
+Pivot: 68
+Permutation after choosing pivot: 45 63 68 
+Pivot: 63
+Permutation after choosing pivot: 45 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 6
 
-Permutation: 3 48 75 87 
-Sorted permutation: 3 48 75 87 : 9
+Permutation: 45 68 83 63 
+Pivot: 63
+Permutation after choosing pivot: 45 68 83 63 
+Pivot: 68
+Permutation after choosing pivot: 83 68 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 4
 
+Permutation: 45 68 63 83 
+Pivot: 63
+Permutation after choosing pivot: 45 68 63 83 
+Pivot: 83
+Permutation after choosing pivot: 83 68 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 4
 
-Permutation: 75 3 87 48 
-Sorted permutation: 3 48 75 87 : 3
+Permutation: 83 45 63 68 
+Pivot: 68
+Permutation after choosing pivot: 83 45 63 68 
+Pivot: 45
+Permutation after choosing pivot: 45 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 4
 
+Permutation: 83 45 68 63 
+Pivot: 83
+Permutation after choosing pivot: 83 45 68 63 
+Pivot: 45
+Permutation after choosing pivot: 63 45 68 
+Pivot: 68
+Permutation after choosing pivot: 68 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 6
 
-Permutation: 75 3 48 87 
-Sorted permutation: 3 48 75 87 : 6
+Permutation: 83 63 45 68 
+Pivot: 83
+Permutation after choosing pivot: 83 63 45 68 
+Pivot: 68
+Permutation after choosing pivot: 68 63 45 
+Pivot: 63
+Permutation after choosing pivot: 45 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 6
 
+Permutation: 83 63 68 45 
+Pivot: 45
+Permutation after choosing pivot: 83 63 68 45 
+Pivot: 68
+Permutation after choosing pivot: 63 68 83 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 5
 
-Permutation: 75 87 3 48 
-Sorted permutation: 3 48 75 87 : 4
+Permutation: 83 68 63 45 
+Pivot: 83
+Permutation after choosing pivot: 83 68 63 45 
+Pivot: 68
+Permutation after choosing pivot: 45 68 63 
+Pivot: 45
+Permutation after choosing pivot: 45 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 6
 
+Permutation: 83 68 45 63 
+Pivot: 45
+Permutation after choosing pivot: 83 68 45 63 
+Pivot: 63
+Permutation after choosing pivot: 68 63 83 
+Pivot: 68
+Permutation after choosing pivot: 83 68 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 6
 
-Permutation: 75 87 48 3 
-Sorted permutation: 3 48 75 87 : 3
+Permutation: 68 45 83 63 
+Pivot: 68
+Permutation after choosing pivot: 68 45 83 63 
+Pivot: 63
+Permutation after choosing pivot: 63 45 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 4
 
+Permutation: 68 45 63 83 
+Pivot: 45
+Permutation after choosing pivot: 68 45 63 83 
+Pivot: 83
+Permutation after choosing pivot: 83 63 68 
+Pivot: 68
+Permutation after choosing pivot: 68 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 6
 
-Permutation: 75 48 87 3 
-Sorted permutation: 3 48 75 87 : 3
+Permutation: 68 83 45 63 
+Pivot: 45
+Permutation after choosing pivot: 68 83 45 63 
+Pivot: 83
+Permutation after choosing pivot: 83 63 68 
+Pivot: 63
+Permutation after choosing pivot: 68 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 6
 
+Permutation: 68 83 63 45 
+Pivot: 63
+Permutation after choosing pivot: 68 83 63 45 
+Pivot: 68
+Permutation after choosing pivot: 68 83 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 4
 
-Permutation: 75 48 3 87 
-Sorted permutation: 3 48 75 87 : 7
+Permutation: 68 63 83 45 
+Pivot: 68
+Permutation after choosing pivot: 68 63 83 45 
+Pivot: 63
+Permutation after choosing pivot: 45 63 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 4
 
-
-Permutation: 87 75 3 48 
-Sorted permutation: 3 48 75 87 : 3
-
-
-Permutation: 87 75 48 3 
-Sorted permutation: 3 48 75 87 : 5
-
-
-Permutation: 87 3 75 48 
-Sorted permutation: 3 48 75 87 : 4
-
-
-Permutation: 87 3 48 75 
-Sorted permutation: 3 48 75 87 : 5
-
-
-Permutation: 87 48 3 75 
-Sorted permutation: 3 48 75 87 : 4
-
-
-Permutation: 87 48 75 3 
-Sorted permutation: 3 48 75 87 : 6
-
-
-Permutation: 48 75 87 3 
-Sorted permutation: 3 48 75 87 : 3
-
-
-Permutation: 48 75 3 87 
-Sorted permutation: 3 48 75 87 : 6
-
-
-Permutation: 48 87 75 3 
-Sorted permutation: 3 48 75 87 : 4
-
-
-Permutation: 48 87 3 75 
-Sorted permutation: 3 48 75 87 : 4
-
-
-Permutation: 48 3 87 75 
-Sorted permutation: 3 48 75 87 : 4
-
-
-Permutation: 48 3 75 87 
-Sorted permutation: 3 48 75 87 : 8
-
+Permutation: 68 63 45 83 
+Pivot: 83
+Permutation after choosing pivot: 68 63 45 83 
+Pivot: 63
+Permutation after choosing pivot: 68 63 45 
+Sorted permutation: 45 63 68 83 
+Number of times comparison is done: 5
 
