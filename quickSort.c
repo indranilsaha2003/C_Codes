@@ -105,6 +105,7 @@ int main()
     }
     permute(arr, a, 0, n - 1);
     int *countComp = (int *)malloc(fact * sizeof(int));
+    int totalComp = 0;
     for (i = 0; i < fact; i++)
     {
         fprintf(f, "Permutation: ");
@@ -115,6 +116,7 @@ int main()
         fprintf(f, "\n");
         countComp[i] = 0;
         quickSort(arr[i], 0, n - 1, &countComp[i], f);
+        totalComp += countComp[i];
         fprintf(f, "Sorted permutation: ");
         for (j = 0; j < n; j++)
         {
@@ -123,6 +125,8 @@ int main()
         fprintf(f, "\n");
         fprintf(f, "Number of times comparison is done: %d\n\n", countComp[i]);
     }
+    float averageComp = (float)totalComp / fact;
+    fprintf(f, "Average number of comparisons: %.2f", averageComp);
     fclose(f);
     printf("Output written to QuickSortOutput.txt\n");
     return 0;
