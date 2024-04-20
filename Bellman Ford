@@ -1,0 +1,123 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <limits.h>
+
+typedef struct node
+{
+  int u;
+  int v;
+  int w;
+} node;
+
+typedef struct graph
+{
+  int V;
+  int E;
+  node *edges;
+} graph;
+
+graph *createGraph(int V, int E)
+{
+  graph *g = (graph *)malloc(sizeof(graph));
+  g->V = V;
+  g->E = E;
+  g->edges = (node *)malloc(E * sizeof(node));
+  return g;
+}
+
+void addEdge(graph *g, int i, int u, int v, int w)
+{
+  g->edges[i].u = u;
+  g->edges[i].v = v;
+  g->edges[i].w = w;
+}
+
+void initializeSingleSource(graph *g, int src, int *dist, int *parent)
+{
+  int i;
+  for (i = 0; i < g->V; i++)
+  {
+    dist[i] = INT_MAX;
+    parent[i] = -1;
+  }
+  dist[src] = 0;
+}
+
+void Relax(int u, int v, int w, int *dist, int *parent)
+{
+  if (dist[u] != INT_MAX && dist[u] + w < dist[v])
+  {
+    dist[v] = dist[u] + w;
+    parent[v] = u;
+  }
+}
+
+int BellmanFord(graph *g, int src, int *dist, int *parent)
+{
+  initializeSingleSource(g, src, dist, parent);
+  int i, j;
+  for (i = 0; i < g->V - 1; i++)
+  {
+    for (j = 0; j < g->E; j++)
+    {
+      Relax(g->edges[j].u, g->edges[j].v, g->edges[j].w, dist, parent);
+    }
+  }
+  for (i = 0; i < g->E; i++)
+  {
+    if (dist[g->edges[i].u] != INT_MAX && dist[g->edges[i].u] + g->edges[i].w < dist[g->edges[i].v])
+    {
+      return 0;
+    }
+  }
+  return 1;
+}
+
+void printPath(int src, int dest, int *parent)
+{
+  if (dest == src)
+  {
+    printf("%c -> ", 65 + src);
+  }
+  else if (parent[dest] == -1)
+  {
+    printf("No path from %c to %c\n", 65 + src, 65 + dest);
+  }
+  else
+  {
+    printPath(src, parent[dest], parent);
+    printf("%c -> ", 65 + dest);
+  }
+}
+
+int main()
+{
+  int V = 5;
+  int E = 9;
+  graph *g = createGraph(V, E);
+  int *d = (int *)malloc(V * sizeof(int));
+  int *pi = (int *)malloc(V * sizeof(int));
+  FILE *file = fopen("Bellman.txt", "r");
+  int u, v, w, i;
+  for (i = 0; i < E; i++)
+  {
+    fscanf(file, "%d %d %d", &u, &v, &w);
+    addEdge(g, i, u, v, w);
+  }
+  int check = BellmanFord(g, 0, d, pi);
+  if (check == 1)
+  {
+    for (i = 1; i < V; i++)
+    {
+      printf("\nDistance from A to %c: %d\n", 65 + i, d[i]);
+      printPath(0, i, pi);
+      printf("NULL\n");
+    }
+  }
+  else
+  {
+    printf("Graph contains a negative-weight cycle\n");
+  }
+  return 0;
+}
