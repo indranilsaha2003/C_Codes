@@ -1,20 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-void swap(int *x, int *y)
+
+void swap(int *a, int *b)
 {
-    int temp = *x;
-    *x = *y;
-    *y = temp;
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
+
 int k = 0;
-void generatePermutations(int arr[], int start, int end, int **result)
+
+void permute(int **arr1, int *arr, int start, int end)
 {
+    int i;
     if (start == end)
     {
-        for (int i = 0; i <= end; i++)
+        for (i = 0; i <= end; i++)
         {
-            result[k][i] = arr[i];
+            arr1[k][i] = arr[i];
         }
         k++;
     }
@@ -23,91 +27,103 @@ void generatePermutations(int arr[], int start, int end, int **result)
         for (int i = start; i <= end; i++)
         {
             swap(&arr[start], &arr[i]);
-            generatePermutations(arr, start + 1, end, result);
+            permute(arr1, arr, start + 1, end);
             swap(&arr[start], &arr[i]);
         }
     }
 }
-int partition(int a[], int p, int r, int countQuick[])
+
+int partition(int *arr, int low, int high, int *countComp, FILE *f)
 {
-    int x = a[r];
-    int i = p - 1;
-    for (int j = p; j < r; j++)
+    int pivot = low + (rand() % (high - low + 1));
+    fprintf(f, "Pivot: %d\n", arr[pivot]);
+    fprintf(f, "Permutation after choosing pivot: ");
+    for (int i = low; i <= high; i++)
     {
-        if (a[j] <= x)
+        fprintf(f, "%d ", arr[i]);
+    }
+    fprintf(f, "\n");
+    swap(&arr[high], &arr[pivot]);
+    int i = low - 1;
+    int j;
+    for (j = low; j < high; j++)
+    {
+        (*countComp)++;
+        if (arr[j] < arr[high])
         {
-            i = i + 1;
-            swap(&a[i], &a[j]);
-            (*countQuick)++;
+            i++;
+            swap(&arr[i], &arr[j]);
         }
     }
-    swap(&a[i + 1], &a[r]);
-    (*countQuick)++;
+    swap(&arr[i + 1], &arr[high]);
     return i + 1;
 }
-void quicksort(int a[], int p, int r, int countQuick[])
+
+void quickSort(int *arr, int low, int high, int *countComp, FILE *f)
 {
-    if (p < r)
+    if (low < high)
     {
-        int q = partition(a, p, r, countQuick);
-        quicksort(a, p, q - 1, countQuick);
-        quicksort(a, q + 1, r, countQuick);
+        int pivot = partition(arr, low, high, countComp, f);
+        quickSort(arr, low, pivot - 1, countComp, f);
+        quickSort(arr, pivot + 1, high, countComp, f);
     }
 }
+
 int main()
 {
     srand(time(NULL));
-    int n;
-    printf("Enter number of elements: ");
+    int n, i, j;
+    printf("Enter the number of elements: ");
     scanf("%d", &n);
-    int *arr = (int *)malloc(n * sizeof(int));
-    FILE *fp = fopen("QuickSortOutput.txt", "w");
-    fprintf(fp, "The Array is: ");
-    for (int i = 0; i < n; i++)
+    int *a = (int *)malloc(n * sizeof(int));
+    for (i = 0; i < n; i++)
     {
-        arr[i] = rand() % 100;
-        fprintf(fp, "%d ", arr[i]);
+        int num = 10 + (rand() % 90);
+        a[i] = num;
     }
-    int factorial =
-        1;
-    for (int i = 2; i <= n; i++)
+    FILE *f = fopen("QuickSortOutput.txt", "w");
+    if (f == NULL)
     {
-        factorial *= i;
+        printf("Error opening file\n");
+        exit(1);
     }
-    int **result =
-        (int **)malloc(factorial *
-                       sizeof(int *));
-    int *countQuick = (int *)malloc(factorial * sizeof(int));
-    for (int i = 0; i < factorial; i++)
+    fprintf(f, "The array is: ");
+    for (i = 0; i < n; i++)
     {
-        result[i] = (int *)malloc(n * sizeof(int));
-        countQuick[i] = 0;
+        fprintf(f, "%d ", a[i]);
     }
-    if (
-        fp == NULL)
+    fprintf(f, "\n\n");
+    int fact = 1;
+    for (i = 1; i <= n; i++)
     {
-        printf("Error opening file.\n");
-        return 1;
+        fact *= i;
     }
-    generatePermutations(arr, 0, n - 1, result);
-    fprintf(fp, "\n\n");
-    for (int i = 0; i < factorial; i++)
+    int **arr = (int **)malloc(fact * sizeof(int *));
+    for (i = 0; i < fact; i++)
     {
-        fprintf(fp, "Permutation: ");
-        for (int j = 0; j < n; j++)
+        arr[i] = (int *)malloc(n * sizeof(int));
+    }
+    permute(arr, a, 0, n - 1);
+    int *countComp = (int *)malloc(fact * sizeof(int));
+    for (i = 0; i < fact; i++)
+    {
+        fprintf(f, "Permutation: ");
+        for (j = 0; j < n; j++)
         {
-            fprintf(fp, "%d ", result[i][j]);
+            fprintf(f, "%d ", arr[i][j]);
         }
-        fprintf(fp, "\nSorted permutation: ");
-        quicksort(result[i], 0, n - 1, &countQuick[i]);
-        for (int j = 0; j < n; j++)
+        fprintf(f, "\n");
+        countComp[i] = 0;
+        quickSort(arr[i], 0, n - 1, &countComp[i], f);
+        fprintf(f, "Sorted permutation: ");
+        for (j = 0; j < n; j++)
         {
-            fprintf(fp, "%d ", result[i][j]);
+            fprintf(f, "%d ", arr[i][j]);
         }
-        fprintf(fp, ": %d\n", countQuick[i]);
-        fprintf(fp, "\n\n");
+        fprintf(f, "\n");
+        fprintf(f, "Number of times comparison is done: %d\n\n", countComp[i]);
     }
-    fclose(fp);
-    printf("Results stored in 'QuickSortOutput.txt'.\n");
+    fclose(f);
+    printf("Output written to QuickSortOutput.txt\n");
     return 0;
 }
