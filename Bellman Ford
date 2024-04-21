@@ -91,8 +91,7 @@ void printPath(int src, int dest, int *parent)
   }
 }
 
-int main()
-{
+int main() {
   int V = 5;
   int E = 9;
   graph *g = createGraph(V, E);
@@ -100,23 +99,18 @@ int main()
   int *pi = (int *)malloc(V * sizeof(int));
   FILE *file = fopen("Bellman.txt", "r");
   int u, v, w, i;
-  for (i = 0; i < E; i++)
-  {
+  for (i = 0; i < E; i++) {
     fscanf(file, "%d %d %d", &u, &v, &w);
     addEdge(g, i, u, v, w);
   }
   int check = BellmanFord(g, 0, d, pi);
-  if (check == 1)
-  {
-    for (i = 1; i < V; i++)
-    {
+  if (check == 1) {
+    for (i = 1; i < V; i++) {
       printf("\nDistance from A to %c: %d\n", 65 + i, d[i]);
       printPath(0, i, pi);
       printf("NULL\n");
     }
-  }
-  else
-  {
+  }  else  {
     printf("Graph contains a negative-weight cycle\n");
   }
   return 0;
