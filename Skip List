@@ -2,14 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-// define a structure that have a four_pointer
+
 typedef struct node {
     int val;
     struct node *up, *down, *right, *left;
 } node;
 
-// creates a quad node with a data as "val"
-// and sets all the 4 pointers as NULL
 node *createNode(int data) {
     node *newNode = (node *)malloc(sizeof(node));
     newNode->val = data;
@@ -17,8 +15,6 @@ node *createNode(int data) {
     return newNode;
 }
 
-// creates the a skipList empty level(with one node as right bound(INT_MAX)
-// and other node as left bound(INT_MIN))
 node *createSkipList() {
     node *rightBound = createNode(INT_MAX);
     node *leftBound = createNode(INT_MIN);
@@ -37,11 +33,8 @@ node *getTopLevel(node *curLevel) {
     return curLevel;
 }
 
-// given the left pointer of any level
-// creates a new empty level and add it on top
 void addNewLevel(node *curLevel) {
     node *newLevel = createSkipList();
-    // link the left up, down pointers
     newLevel->down = curLevel;
     curLevel->up = newLevel;
     node *curLevelLast = curLevel;
@@ -50,9 +43,6 @@ void addNewLevel(node *curLevel) {
     curLevelLast->up = newLevel->right;
 }
 
-// takes "data" to be found and "skipList" and returns
-// node pointer with "data" if present
-// otherwise returns pointer with value just greater than "data"
 node *find(node *skipList, int data) {
     node *level = skipList, *preTemp = NULL, *temp = NULL;
     while (level) {
@@ -73,7 +63,6 @@ node *find(node *skipList, int data) {
     return preTemp;
 }
 
-// only checks for a single level
 node *findInSameLevel(node *curLevel, int data) {
     int y = curLevel->right->val;
     while (y < data) {
@@ -83,7 +72,6 @@ node *findInSameLevel(node *curLevel, int data) {
     return curLevel->right;
 }
 
-// inserts data into the skip list
 void insertx(node **skipList, int data) {
     node *found = find(*skipList, data);
     if (found->val != data) {
@@ -95,37 +83,22 @@ void insertx(node **skipList, int data) {
         newNode->right = found;
 
         node *curLevel = getLevel(found);
-        // if there is no empty top leyer just add one
         if (!curLevel->up) addNewLevel(curLevel);
-        // toss the coin
         int toss = rand() % 2;
         while (toss) {
-            // go one level up
             curLevel = curLevel->up;
-            // find the right place in the new level
             found = findInSameLevel(curLevel, data);
-            // make a new node
             node *curNewNode = createNode(data);
-            // place the new node in its right position
-            left = found->left;  // left is the left bound
-            // found is the right bound
-            // adjust the bounds' left and right pointers
+            left = found->left;
             left->right = curNewNode;
             found->left = curNewNode;
-            // adjust the curNewNode's right and left pointers
             curNewNode->left = left;
             curNewNode->right = found;
-            // link the old newNode and curNewNode's vertical pointers
             curNewNode->down = newNode;
             newNode->up = curNewNode;
-            // update the old newNode
-            newNode = curNewNode;
-            // if there is no empty top leyer just add one
             if (!curLevel->up) addNewLevel(curLevel);
-            // toss the coin
             toss = rand() % 2;
         }
-        // update the skip List pointer
         *skipList = getTopLevel(curLevel);
     }
 }
@@ -147,10 +120,8 @@ void deletex(node **skipList, int data) {
             node *nextEle = found->down;
             node *left = found->left;
             node *right = found->right;
-            // link right and left
             left->right = right;
             right->left = left;
-            // go to the next lower level
             free(found);
             found = nextEle;
             if (left->val == INT_MIN && right->val == INT_MAX)
