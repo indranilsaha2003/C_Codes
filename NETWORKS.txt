@@ -1,0 +1,295 @@
+client:-
+
+import java.io.*;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Client {
+    public static void main(String[] args) throws IOException {
+        Socket socket = new Socket("localhost", 1555);
+
+        InputStream socketIn = socket.getInputStream();
+        DataInputStream dis = new DataInputStream(socketIn);
+
+        OutputStream socketOut = socket.getOutputStream();
+        DataOutputStream dos = new DataOutputStream(socketOut);
+
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            String serverMessage = dis.readUTF();
+            System.out.println("Server: " + serverMessage);
+
+            if (serverMessage.equals("q")) {
+                break;
+            }
+
+            String clientInput = sc.nextLine();
+            dos.writeUTF(clientInput);
+
+            if (clientInput.equals("q")) {
+                break;
+            }
+        }
+
+        dis.close();
+        dos.close();
+        socketIn.close();
+        socketOut.close();
+        socket.close();
+    }
+}
+
+
+server:
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Server {
+    public static void main(String[] args) throws IOException {
+        ServerSocket serverSocket = new ServerSocket(1555);
+        System.out.println("Server is running and waiting for a client...");
+
+        Socket clientSocket = serverSocket.accept();
+        System.out.println("Client connected.");
+
+        InputStream clientIn = clientSocket.getInputStream();
+        DataInputStream dis = new DataInputStream(clientIn);
+
+        OutputStream clientOut = clientSocket.getOutputStream();
+        DataOutputStream dos = new DataOutputStream(clientOut);
+
+        Scanner sc = new Scanner(System.in);
+
+        dos.writeUTF("Hello client! Your name?\nPress q to exit");
+
+        while (true) {
+            String clientInput = dis.readUTF();
+            System.out.println("Client: " + clientInput);
+
+            if (clientInput.equals("q")) {
+                break;
+            }
+
+            System.out.print("Server: ");
+            String serverReply = sc.nextLine();
+            dos.writeUTF(serverReply);
+
+            if (serverReply.equals("q")) {
+                break;
+            }
+        }
+
+        dis.close();
+        dos.close();
+        clientSocket.close();
+        serverSocket.close();
+    }
+}
+
+
+
+
+
+SERVER-SIDE CODE: 
+ package com.mycompany.server1;
+
+import java.io.*;
+import java.net.*;
+
+public class Server1 {
+  private static final int MAX_CLIENTS = 10;
+  private static ClientHandler[] clients = new ClientHandler[MAX_CLIENTS];
+
+  public static void main(String[] args) {
+    try (ServerSocket serverSocket = new ServerSocket(1254)) {
+      System.out.println("Server started. Waiting for clients...");
+
+      while (true) {
+        Socket socket = serverSocket.accept();
+        int clientId = assignClientId();
+
+        if (clientId == -1) {
+          System.out.println("Server full! Connection rejected.");
+          socket.close();
+          continue;
+        }
+
+        ClientHandler clientHandler = new ClientHandler(socket, clientId);
+        clients[clientId] = clientHandler;
+
+        Thread clientThread = new Thread(clientHandler);
+        clientThread.start();
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private static synchronized int assignClientId() {
+    for (int i = 0; i < MAX_CLIENTS; i++) {
+      if (clients[i] == null) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  private static synchronized String getClientList() {
+    StringBuilder clientList = new StringBuilder("Connected clients: ");
+    for (int i = 0; i < MAX_CLIENTS; i++) {
+      if (clients[i] != null) {
+        clientList.append(i).append(" ");
+      }
+    }
+    return clientList.toString();
+  }
+
+  public static synchronized void sendMessage(int fromClient, int toClient, String message) {
+    if (toClient >= 0 && toClient < MAX_CLIENTS && clients[toClient] != null) {
+      clients[toClient].sendMessage("Client " + fromClient + " says: " + message);
+    } else {
+      clients[fromClient].sendMessage("Client " + toClient + " is not connected.");
+    }
+  }
+
+  public static synchronized void removeClient(int clientId) {
+    if (clientId >= 0 && clientId < MAX_CLIENTS) {
+      clients[clientId] = null;
+      System.out.println("Client " + clientId + " disconnected.");
+    }
+  }
+
+  private static class ClientHandler implements Runnable {
+    private Socket socket;
+    private int clientId;
+    private BufferedReader input;
+    private PrintWriter output;
+
+    public ClientHandler(Socket socket, int clientId) {
+      this.socket = socket;
+      this.clientId = clientId;
+    }
+
+    public void sendMessage(String message) {
+      output.println(message);
+    }
+
+    @Override
+    public void run() {
+      try {
+        input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        output = new PrintWriter(socket.getOutputStream(), true);
+
+        output.println("Connected as Client " + clientId);
+        System.out.println("Client " + clientId + " connected.");
+
+        while (true) {
+          String message = input.readLine();
+          if (message == null)
+            break;
+
+          if (message.equalsIgnoreCase("GET")) {
+            output.println(getClientList());
+          } else if (message.startsWith("SEND")) {
+            String[] parts = message.split(" ", 3);
+            if (parts.length < 3) {
+              output.println("Invalid command. Use: SEND <client_id> <message>");
+            } else {
+              try {
+                int targetClient = Integer.parseInt(parts[1]);
+                Server1.sendMessage(clientId, targetClient, parts[2]);
+              } catch (NumberFormatException e) {
+                output.println("Invalid client ID.");
+              }
+            }
+          } else if (message.equalsIgnoreCase("EXIT")) {
+            break;
+          } else {
+            output.println("Unknown command.");
+          }
+        }
+      } catch (IOException e) {
+        System.out.println("Client " + clientId + " disconnected unexpectedly.");
+      } finally {
+        removeClient(clientId);
+        try {
+          socket.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+  }
+}
+
+
+CLIENT-SIDE CODE: 
+package com.mycompany.client1;
+
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+
+public class Client1 {
+  private static BufferedReader input;
+  private static PrintWriter output;
+
+  public static void main(String[] args) {
+    try (Socket socket = new Socket("localhost", 1254);
+        Scanner scanner = new Scanner(System.in)) {
+
+      input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+      output = new PrintWriter(socket.getOutputStream(), true);
+
+      System.out.println(input.readLine()); // Read greeting message
+
+      // Start a separate thread for listening to incoming messages
+      Thread listenerThread = new Thread(Client1::listenForMessages);
+      listenerThread.setDaemon(true);
+      listenerThread.start();
+
+      while (true) {
+        printCommandMenu();
+        System.out.print("Enter command: ");
+        String command = scanner.nextLine();
+
+        if (command.equalsIgnoreCase("EXIT")) {
+          System.out.println("Disconnecting...");
+          output.println(command);
+          break;
+        }
+
+        output.println(command);
+
+        // GET response should be immediate
+        if (command.equalsIgnoreCase("GET")) {
+          System.out.println("Server response: " + input.readLine());
+        }
+      }
+
+    } catch (IOException e) {
+      System.out.println("Error: " + e.getMessage());
+    }
+  }
+
+  private static void listenForMessages() {
+    try {
+      String receivedMessage;
+      while ((receivedMessage = input.readLine()) != null) {
+        System.out.println("\n[NEW MESSAGE] " + receivedMessage);
+        System.out.print("Enter command: ");
+      }
+    } catch (IOException e) {
+      System.out.println("Disconnected from server.");
+    }
+  }
+
+  private static void printCommandMenu() {
+    System.out.println("1. GET - Fetch the list of connected clients.");
+    System.out.println("2. SEND <id> <msg> - Send a message to a specific client.");
+    System.out.println("3. EXIT - Disconnect from the server.");
+  }
+}
